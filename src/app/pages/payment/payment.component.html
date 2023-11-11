@@ -1,0 +1,78 @@
+<!-- Thông tin thanh toán bằng tiền mặt -->
+<div class="wrapper">
+  <div class="sidebar" data-color="blue" data-image="">
+    <app-sidebar></app-sidebar>
+    <div class="sidebar-background" style="background-image: url(assets/img/sidebar-5.jpg)"></div>
+  </div>
+
+  <div class="main-panel">
+    <navbar-cmp></navbar-cmp>
+    <div id="cashDetails">
+      <div class="main-content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="header">
+                  <h2 class="title">Thanh toán trực tiếp</h2>
+                </div>
+                <div class="content">
+                  <form (ngSubmit)="submitCashPaymentForm()">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Chọn hình thức thanh toán:</label>
+                          <div class="form-check">
+                            <input type="radio" class="form-check-input" id="fullPayment" [(ngModel)]="paymentOption"
+                              name="paymentOption" value="full" checked>
+                            <label class="form-check-label" for="fullPayment">Thanh toán toàn bộ</label>
+                          </div>
+                          <div class="form-check">
+                            <input type="radio" class="form-check-input" id="halfPayment" [(ngModel)]="paymentOption"
+                              name="paymentOption" value="half">
+                            <label class="form-check-label" for="halfPayment">Thanh toán nửa giá</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="quantity">Số lượng:</label>
+                          <input type="number" class="form-control" id="quantity" name="quantity" [(ngModel)]="quantity"
+                            required min="1">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="totalAmount">Tổng tiền:</label>
+                          <p id="totalAmountDisplay">{{ calculateTotalAmount() | currency:'USD':'symbol':'1.2-2' }}</p>
+                          <!-- Dòng văn bản màu đỏ xuất hiện khi thanh toán nửa giá -->
+                          <p *ngIf="paymentOption === 'half'" class="text-danger">Lưu ý: khoản thanh toán còn lại sẽ
+                            phải trả vào lúc shipper trả hàng, nếu bạn không trả tiền thì sẽ không được sử dụng dịch vụ
+                            của chúng tôi nữa</p>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="btn btn-secondary" (click)="goBack()">Quay lại</button>
+                    <button type="submit" class="btn btn-info btn-fill pull-right">Thanh toán</button>
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <footer-cmp></footer-cmp>
+  </div>
+</div>
+
+
+
+<div id="cashDetails">
+  <!-- ... Nội dung cho thanh toán bằng tiền mặt ... -->
+</div>

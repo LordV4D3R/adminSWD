@@ -1,0 +1,99 @@
+<div class="wrapper">
+    <div class="sidebar" data-color="blue" data-image="">
+        <app-sidebar></app-sidebar>
+        <div class="sidebar-background" style="background-image: url(assets/img/sidebar-5.jpg)"></div>
+    </div>
+
+    <div class="main-panel">
+        <navbar-cmp></navbar-cmp>
+        <div class="main-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h2 class="title">Order</h2>
+                            </div>
+                            <div class="content">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="deliveryTime">Thời gian đặt giao:</label>
+                                                <input type="datetime-local" class="form-control" id="deliveryTime"
+                                                    name="deliveryTime" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="estimatedCompletionTime">Thời gian dự kiến hoàn
+                                                    thành:</label>
+                                                <p>20/10/2023</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="address">Địa chỉ:</label>
+                                                <textarea class="form-control" id="address" name="address" rows="4"
+                                                    placeholder="Địa chỉ của bạn" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="quantity">Số lượng:</label>
+                                                <input type="number" class="form-control" id="quantity" name="quantity"
+                                                    required min="1">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="returnTime">Chọn thời điểm trả hàng:</label>
+                                                <select class="form-control" id="returnTime" name="returnTime" required>
+                                                    <option value="morning">Sáng</option>
+                                                    <option value="noon">Trưa</option>
+                                                    <option value="afternoon">Chiều</option>
+                                                    <option value="evening">Tối</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="paymentMethod">Chọn hình thức thanh toán:</label>
+                                                <select class="form-control" id="paymentMethod" name="paymentMethod"
+                                                    required>
+                                                    <option value="cash">Trực tiếp</option>
+                                                    <option value="card">Ewallet</option>
+                                                    <!-- Thêm các phương thức thanh toán khác nếu cần -->
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="totalAmount">Tổng tiền:</label>
+                                                <p>15.00$</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-info btn-fill pull-right"
+                                        (click)="acceptOrder()">Đặt
+                                        Hàng</button>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <footer-cmp></footer-cmp>
+        </div>
+    </div>
+
+</div>
